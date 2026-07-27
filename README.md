@@ -11,7 +11,7 @@ This repository documents hands-on security investigations completed while prepa
 
 | Platform | Investigation | Skills demonstrated |
 |---|---|---|
-| Blue Team Labs Online | [Miner](BTLO/Miner/README.md) | PCAP analysis, Wireshark, NetworkMiner, TLS decryption, SMB analysis, C2 identification |
+| Blue Team Labs Online | [Miner](Miner/README.md)| PCAP analysis, Wireshark, NetworkMiner, TLS decryption, SMB analysis, C2 identification |
 
 ## Tools used
 
