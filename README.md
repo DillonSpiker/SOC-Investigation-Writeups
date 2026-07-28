@@ -25,6 +25,10 @@ These investigations were completed through hands-on analysis of the provided la
 - Nmap
 - Windows event analysis
 - SIEM and log-analysis tools
+- ELK Stack
+- Kibana
+- auditd
+- syslog
 
 ## Content policy
 
