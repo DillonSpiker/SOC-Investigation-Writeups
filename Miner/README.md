@@ -80,3 +80,17 @@ The fifth question asked for the NTLM response associated with the challenge fro
 ![NetworkMiner NTLM response](../networkminer-ntlm-response.png)
 
 *Figure 8: NetworkMiner displayed the NTLM challenge and associated response.*
+
+## Conclusion
+
+The investigation identified an EternalBlue exploit attempt targeting SMB and showed that `172.16.0.5` was responsible for Nmap scanning activity. Further analysis identified `172.16.0.9`, hostname `IE11WIN8_1`, as the likely command-and-control server based on its listening ports, session behavior, and connection from the suspected victim host `172.16.0.4`.
+
+Using the supplied TLS key-log file, I decrypted the captured traffic and recovered the victim’s submitted banking credentials from an HTTP POST request. I also used NetworkMiner to identify the NTLM response associated with the victim’s authentication activity. Together, the evidence showed reconnaissance, exploit activity, command-and-control communication, and exposure of sensitive credentials.
+
+## Lessons Learned
+
+This investigation reinforced the importance of using more than one analysis tool when reviewing packet captures. NetworkMiner made it easier to identify hosts, sessions, anomalies, Nmap activity, and authentication artifacts, while Wireshark provided the detailed packet inspection needed to decrypt TLS traffic and examine the HTTP form data.
+
+One of the main difficulties was identifying the command-and-control server. I initially focused on `172.16.0.4` because it had transferred a large amount of data, but traffic volume alone was not enough to determine its role. Reviewing listening ports and filtering the session data for TCP port `4782` showed that `172.16.0.4` was connecting to `172.16.0.9`, which provided stronger evidence that `172.16.0.9` was the C2 listener.
+
+I also learned not to assume that the first packet capture contains every answer. When the initial capture did not reveal an obvious credential submission, applying the same HTTP POST filter to the second capture exposed the banking login request. For future packet-capture investigations, I would review all available captures systematically and keep track of hosts, ports, filters, and evidence as they are identified.
