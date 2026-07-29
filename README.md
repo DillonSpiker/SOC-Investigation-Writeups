@@ -17,6 +17,7 @@ These investigations were completed through hands-on analysis of the provided la
 |---|---|---|
 | Blue Team Labs Online | [Miner](Miner/README.md)| PCAP analysis, Wireshark, NetworkMiner, TLS decryption, SMB analysis, C2 identification |
 | Blue Team Labs Online | [Peak](https://github.com/DillonSpiker/Peak-Investigation) | ELK, Kibana, auditd analysis, SSH investigation, process tracing, privilege-escalation analysis, file-transfer analysis |
+| Blue Team Labs Online | [SOC Alpha 1](https://github.com/DillonSpiker/SOC-Alpha-1-Investigation) | ELK, Kibana, PowerShell log analysis, Sysmon analysis, Startup folder persistence, Registry Run key analysis, scheduled task analysis |
 
 ## Tools used
 
